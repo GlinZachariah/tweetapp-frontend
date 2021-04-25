@@ -5,16 +5,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TweetappComponent } from './tweetapp/tweetapp.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NewtweetComponent } from './newtweet/newtweet.component';
+import { TweetlistComponent } from './tweetlist/tweetlist.component';
+import { ViewtweetComponent } from './viewtweet/viewtweet.component';
+import { ViewusersComponent } from './viewusers/viewusers.component';
+import { ViewuserComponent } from './viewuser/viewuser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TweetappComponent
+    TweetappComponent,
+    LoginComponent,
+    RegisterComponent,
+    NewtweetComponent,
+    TweetlistComponent,
+    ViewtweetComponent,
+    ViewusersComponent,
+    ViewuserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
