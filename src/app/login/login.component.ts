@@ -59,9 +59,12 @@ export class LoginComponent implements OnInit {
         if (res.code == 200) {
           this.success = true;
           this.successmsg = "Reset Password Complete!"
+        } else if (res.code == 400) {
+          this.error = true;
+          this.errormsg = "Invalid User!";
         } else {
           this.error = true;
-          this.errormsg = "Invalid user!";
+          this.errormsg = "Invalid Credentials!";
         }
       });
     }
