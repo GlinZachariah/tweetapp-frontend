@@ -23,6 +23,9 @@ const routes: Routes = [
   {
     path: "new",
     component: NewtweetComponent
+  }, {
+    path: "edit/:id",
+    component: NewtweetComponent
   },
   {
     path: "tweets",
@@ -30,7 +33,7 @@ const routes: Routes = [
     children: [
       {
         path: ":id",
-        component: TweetappComponent
+        component: TweetlistComponent
       }
     ]
   },

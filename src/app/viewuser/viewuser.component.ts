@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
+import { IncomingResponse } from '../models/incomingdata.model';
+import { RegisterForm } from '../models/userInputForm';
 
 @Component({
   selector: 'app-viewuser',
@@ -8,21 +11,22 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ViewuserComponent implements OnInit {
 
   @Input("user")
-  userData: any;
+  userData: string;
 
-  user: any;
+  showDetails = false;
 
-  constructor() {
-    this.user = {
-      firstName: "glin",
-      lastName: "zachariah",
-      email: "glinzac@gmail.com",
-      userId: "glinzachariah",
-      contactNumber: 123456789
-    }
+  user: RegisterForm;
+
+  constructor(private service: MainService) {
   }
 
   ngOnInit(): void {
+    this.service.searchByUsername(this.userData).subscribe((res: IncomingResponse) => {
+      if (res.code == 200) {
+        this.user = res.message as RegisterForm;
+        this.showDetails = true;
+      }
+    });
   }
 
 }

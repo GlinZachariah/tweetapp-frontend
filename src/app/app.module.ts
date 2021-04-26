@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NewtweetComponent } from './newtweet/newtweet.component';
 import { TweetlistComponent } from './tweetlist/tweetlist.component';
-import { ViewtweetComponent } from './viewtweet/viewtweet.component';
 import { ViewusersComponent } from './viewusers/viewusers.component';
 import { ViewuserComponent } from './viewuser/viewuser.component';
 
@@ -23,7 +22,6 @@ import { ViewuserComponent } from './viewuser/viewuser.component';
     RegisterComponent,
     NewtweetComponent,
     TweetlistComponent,
-    ViewtweetComponent,
     ViewusersComponent,
     ViewuserComponent
   ],

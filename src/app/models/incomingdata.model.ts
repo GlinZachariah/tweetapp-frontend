@@ -8,6 +8,7 @@ export class TweetEntity {
 
     replies: Reply[];
     userIdLiked: string[];
+    tags: [];
 }
 
 export class UserEntity {

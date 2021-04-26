@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { LoginForm, RegisterForm, Reply, TweetForm } from "./models/userInputForm";
+import { BehaviorSubject } from 'rxjs';
+import { TweetEntity } from './models/incomingdata.model';
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
 
   private PREFIX_PATH: string = "api/api/v1.0/tweets/";
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public selectedTweet: TweetEntity;
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +24,7 @@ export class MainService {
   }
 
   resetUserPassword(data: LoginForm) {
-    return this.http.post(this.PREFIX_PATH + data.userId + "/login", data);
+    return this.http.post(this.PREFIX_PATH + data.userId + "/forgot", data);
   }
 
 
@@ -53,7 +57,7 @@ export class MainService {
   }
 
   deleteTweet(userId: string, id: number) {
-    return this.http.delete(this.PREFIX_PATH + userId + "/tweet/" + id);
+    return this.http.delete(this.PREFIX_PATH + userId + "/delete/" + id);
 
   }
 

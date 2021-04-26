@@ -17,9 +17,10 @@ export class TweetForm {
     tweetMessage: string;
     timeStamp: string;
     likeCounter: number;
+    tags: string[];
 }
 
-export interface Reply {
+export class Reply {
     userId: string;
     timeStamp: string;
     comment: string;

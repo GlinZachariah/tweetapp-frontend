@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
+import { IncomingResponse } from '../models/incomingdata.model';
 
 @Component({
   selector: 'app-viewusers',
@@ -9,11 +11,16 @@ export class ViewusersComponent implements OnInit {
   userNameList: string[];
   userSelected: boolean = false;
   selectedUser: string;
-  constructor() {
-    this.userNameList = ["jim", "james", "gordon", "thomas"]
+  constructor(private service: MainService) {
+    this.userNameList = [];
   }
 
   ngOnInit(): void {
+    this.service.getAllUsers().subscribe((res: IncomingResponse) => {
+      if (res.code == 200) {
+        this.userNameList = res.message as string[];
+      }
+    });
   }
 
   selectUser(user: string) {
